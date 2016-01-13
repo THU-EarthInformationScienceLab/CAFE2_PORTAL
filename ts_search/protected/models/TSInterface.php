@@ -1,5 +1,5 @@
 <?php
-define('TSInterfaceROOT','http://166.111.7.72:8088/datamanager-worker/');
+define('TSInterfaceROOT','http://192.168.1.1:8088/datamanager-worker/');
 class TSInterface {
 	
 	public static function get($name){
