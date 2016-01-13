@@ -58,7 +58,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=userdb',
 			'emulatePrepare' => true,
 			'username' => 'eric',
-			'password' => '2013311366',
+			'password' => '12345678',
 			'charset' => 'utf8',
             'tablePrefix'=>'ts_',
 		),
