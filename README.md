@@ -42,7 +42,17 @@ source init.sql;
 ######4.	Grand write permission. [For Linux]     
 Grand write permission to `ts_search/assets` and `ts_search/protected/runtime`       
 ######5. Database access configuration.     
-Find the file `CAFE_PORTAL/ts_search/protected/config/main.php` and replace the database information from line `57` to line `64`.     
+Find the file `CAFE_PORTAL/ts_search/protected/config/main.php` and replace the database information from line `57` to line `64`. For example:
+```php		
+'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=userdb',
+			'emulatePrepare' => true,
+			'username' => 'guest',
+			'password' => '123456',
+			'charset' => 'utf8',
+            'tablePrefix'=>'ts_',
+		 ),
+``` 
 ######6. Server access configuration.       
 find the file `CAFE_PORTAL/ts_search/protected/models/TSInterface.php` and modify the NODE server root address in line2, for example, if you want to connect the web appication to the CAFE node configured on 100.101.100.111:8088, the root path in the tomcat server of that node is  `/worker-node`, you can use following code:
 ```php
