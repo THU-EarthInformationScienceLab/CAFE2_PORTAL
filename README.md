@@ -59,8 +59,9 @@ find the file `CAFE_PORTAL/ts_search/protected/models/TSInterface.php` and modif
 define('TSInterfaceROOT','http://100.101.100.111:8088/worker-node/');   
 ``` 
 ######7. Modify the virtual directory.     
-You should log in the Server with a root account or use sudo mode.  For Ubuntu users:
+You should log in the Server as an administrator or with a root account or use sudo mode.  For Ubuntu users:
 ```Bash 
-sudo vi /etc/apache2/sites-enabled/000-default  #After DocumentRoot
+#if you use apt-get in ubuntu
+sudo vi /etc/apache2/sites-enabled/000-default  #Configure the virtual directory After DocumentRoot
 sudo /etc/init.d/apache2 restart    #restart Apache
 ``` 
