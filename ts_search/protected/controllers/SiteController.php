@@ -13,9 +13,9 @@ class SiteController extends Controller
 				'class'=>'CCaptchaAction',
 				'backColor'=>0x4c5daf,
                 'foreColor'=>0x44bec1,
-                'maxLength'=>'6',       // 最多生成几个字符
+                'maxLength'=>'4',       // 最多生成几个字符
                 'minLength'=>'4',       // 最少生成几个字符
-                'height'=>'22',
+                'height'=>'35',
                 'width'=>'60',
                 'padding'=>'0',
                 'testLimit'=>4,

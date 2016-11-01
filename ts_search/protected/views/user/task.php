@@ -27,7 +27,10 @@ $this->breadcrumbs=array(
 	padding: 1px;
 }
 .img-box img.small{
-	max-width: 200px;
+	max-width: 220px;
+}
+.img.box img.middle{
+        max-width: 250px;
 }
 .img-box img.big{
 	max-width: 890px;

@@ -22,7 +22,7 @@
 <div class="container" id="page">
 
 	<div id="header" style="background: #DBDADB;">
-		<div id="logo" style="line-height:70px;"><?php echo CHtml::encode(Yii::app()->name); ?>
+		<div id="logo" style="line-height:72px;"><?php echo CHtml::encode(Yii::app()->name); ?>
 			<div style="float: right;">
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.jpg" alt="" />
 			</div>

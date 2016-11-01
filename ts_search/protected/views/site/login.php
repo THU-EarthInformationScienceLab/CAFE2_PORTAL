@@ -47,8 +47,8 @@ $this->breadcrumbs=array(
     			<div class="form-line">
     			Security code:
     				<div class="inputContainer">
-                        <?php echo $form->textField($loginModel,'verifyCode',array('class'=>'loginCodeInput')); ?>
-                        <?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'click to refresh','title'=>'click to refresh','style'=>'cursor:pointer;vertical-align:bottom;','align'=>"middle"))); ?>
+                        <?php echo $form->textField($loginModel,'verifyCode',array('class'=>'loginCodeInput','style'=>'vertical-align:middle;')); ?>
+                        <?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'click to refresh','title'=>'click to refresh','style'=>'cursor:pointer;vertical-align:middle;','align'=>"middle"))); ?>
                         　　
     				</div>
     			</div>

@@ -75,7 +75,7 @@ border:solid 1px #0e509e
     foreach ($formItems as $field=>$items){
 		$input_type="";
 		if(in_array(strtolower($field), $form_radio)){
-			$input_type = "radio";
+			$input_type = "checkbox";
 		}
 		if(in_array(strtolower($field), $form_checkbox)){
 			$input_type = "checkbox";
