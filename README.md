@@ -12,7 +12,7 @@ sudo service mysql start #open mysql service
 ```Bash 
 sudo apt-get install apache2     #For Ubuntu 12.04
 ``` 
-`Note`:For windows users,please choose binary installer (http://archive.apache.org/dist/httpd/binaries/win32/), version 2.2.22 is recommeded.
+`Note`:For windows users,please choose binary installer (http://archive.apache.org/dist/httpd/binaries/win32/), version 2.2.22 is recommeded.        
 `Note`:If you want to compile Apache2 by yourself, you need to install apr, apr-util, prce and zlib before you installation.
 ######3.	Installing php5 with extensions (http://php.net/downloads.php)
 ```Bash 
