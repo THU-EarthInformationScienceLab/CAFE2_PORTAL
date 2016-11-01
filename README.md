@@ -7,15 +7,20 @@ To see detailed information about CAFE, please check the [wiki page](https://git
 sudo apt-get install mysql-server mysql-client  #For Ubuntu 12.04
 sudo service mysql start #open mysql service
 ``` 
-Note: To ensure the correct connection to the database, you may have to modify the file /etc/mysql/my.cnf and annotate the row starts with bind-address
+`Note`: To ensure the correct connection to the database, you may have to modify the file /etc/mysql/my.cnf and annotate the row starts with bind-address
 ######2.	Installing Apache 2 HTTP Server (http://httpd.apache.org/)   
 ```Bash 
 sudo apt-get install apache2     #For Ubuntu 12.04
 ``` 
+`Note`:For windows users,please choose binary installer (http://archive.apache.org/dist/httpd/binaries/win32/), version 2.2.22 is recommeded.
+`Note`:If you want to compile Apache2 by yourself, you need to install apr, apr-util, prce and zlib before you installation.
 ######3.	Installing php5 with extensions (http://php.net/downloads.php)
 ```Bash 
 sudo apt-get install php5 php5-mysql php5-gd php5-tidy php5-curl     #For Ubuntu 12.04
 ``` 
+`Note`:If you want to compile php5 by yourself, you should install libpng(v1.6.2), libxpm,jpeg,freetype,libgd,tidy,curl,mysql first. 
+`Note`:For windows users,please choose binary installer (http://windows.php.net/downloads/releases/archives/), version 5.3.10 is recommended. We also recommend you install all the enxtensions while running the php installer. Curl,mysql,gd2,tidy extensions are required.
+
 ##Installation procedures
 ######1.	Database preparation.     
 You have to create a user name of your database system, obtain the ip address,access port,username and password
