@@ -1,7 +1,7 @@
 # CAFE_PORTAL
 To see detailed information about CAFE, please check the [wiki page](https://github.com/THU-EarthInformationScienceLab/CAFE_NODE/wiki).
 ##Before Installing CAFE PORTAL
-`Notice`: This package can be installed in any web server. You can deploy this package either on Windows paltform or in Linux platform. To ensure the application work correctly, following procedures have to be conducted before your installation:
+`Notice`: This package can be installed in any web server. You can deploy this package either on Windows paltform or on Linux platform. To ensure the application work correctly, following procedures have to be conducted before your installation:
 ######1.	Installing MySQL Server and Client (http://www.mysql.com/downloads/ )     
 ```Bash 
 sudo apt-get install mysql-server mysql-client  #For Ubuntu 12.04
