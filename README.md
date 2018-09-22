@@ -77,3 +77,8 @@ sudo /etc/init.d/apache2 restart    #restart Apache
 - Choose a set of data and specify start/end year and the ncl functions you want to use.
 - Spatial Ranger specification: South/North from -90 to 90, and West/East from 0 to 360.
 - Submit task and view status/result in the redirected window, you can also download the result after task finished.
+
+#### 9. Some problems you may encounter
+- CentOS, 403 forbidden, Permission denied: access to / denied
+  check access permission in /etc/httpd/conf/httpd.conf, and check if the /, root directory have +x privileges.
+
