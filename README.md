@@ -71,7 +71,7 @@ sudo vi /etc/apache2/sites-enabled/000-default  #Configure the virtual directory
 sudo /etc/init.d/apache2 restart    #restart Apache
 ``` 
 
-#### 8. A brief how-to guide
+#### 8. A brief how-to-use guide
 - After setting up the portal, open the index page and create an account.
 - Login with that account, then click search to find the wanted data ( which can be filter by Institute, Model, Experiment, etc. ). 
 - Choose a set of data and specify start/end year and the ncl functions you want to use.
