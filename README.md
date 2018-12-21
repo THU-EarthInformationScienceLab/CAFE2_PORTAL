@@ -67,6 +67,7 @@ define('TSInterfaceROOT','http://100.101.100.111:8088/worker-node/');
 ```Bash 
 sudo vi /etc/apache2/sites-enabled/000-default  
 # Then Configure the virtual directory `/CAFE_PORTAL/ts_search` after "DocumentRoot" keyword
+# OR you can use symlink
 sudo /etc/init.d/apache2 restart    #restart Apache
 ``` 
 
