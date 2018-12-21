@@ -78,7 +78,7 @@ sudo /etc/init.d/apache2 restart    #restart Apache
 - Submit task and view status/result in the redirected window, you can also download the result after task finished.
 
 #### 9. Some problems you may encounter
-- CentOS, 403 forbidden, Permission denied: access to / denied
+- 403 forbidden, Permission denied: access to / denied
 
-  check access permission in /etc/httpd/conf/httpd.conf, and check if the /, root directory have +x privileges.
+  check access permission in /etc/httpd/conf/httpd.conf, and check if the /, root directory have +x privileges (every level of the parent directories should have that priviledge).
 
