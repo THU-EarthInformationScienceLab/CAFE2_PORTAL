@@ -6,7 +6,7 @@
 		<th>institute</th>
 		<th>model</th>
 		<th>experiment</th>
-		<th>modelingRealm</th>
+		<th>ModelingRealm</th>
 		<th>variableName</th>
 		<th>ensembleMember</th>
 		<th>temporalStart</th>

@@ -40,6 +40,19 @@ class SearchController extends Controller{
 		}
 	}
 	
+	public function actionUpdateForm(){
+		$model = Yii::app()->request->getPost('model');
+		$value = Yii::app()->request->getPost('value');
+		$arrTpl = array();
+		//hardcode address here, should changed like below in the future
+		//$url=TSInterface::get('G7');
+		$url ='http://39.96.53.141:8080/datamanager-central/web/get/mfs/part?model='. $model . '&value='. $value;
+		$arrTpl['url'] = $url;
+		$content = NetHelper::curl_file_get_contents($url);
+		$arrTpl['updatedFields'] = $content;
+		echo json_encode($arrTpl);
+	}
+
 	public function actionAjaxSearchList(){
 		$filters = Yii::app()->request->getPost('filters');
 		

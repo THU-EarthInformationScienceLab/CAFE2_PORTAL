@@ -65,11 +65,11 @@ class CCaptchaAction extends CAction
 	 * @var integer the background color. For example, 0x55FF00.
 	 * Defaults to 0xFFFFFF, meaning white color.
 	 */
-	public $backColor = 0xFFFFFF;
+	public $backColor = 0x312525;
 	/**
 	 * @var integer the font color. For example, 0x55FF00. Defaults to 0x2040A0 (blue color).
 	 */
-	public $foreColor = 0x2040A0;
+	public $foreColor = 0x44bec1;
 	/**
 	 * @var boolean whether to use transparent background. Defaults to false.
 	 */
@@ -87,7 +87,7 @@ class CCaptchaAction extends CAction
 	 * in order to decrease or increase the readability of the captcha.
 	 * @since 1.1.7
 	 **/
-	public $offset = -2;
+	public $offset = 0;
 	/**
 	 * @var string the TrueType font file. Defaults to SpicyRice.ttf which is provided with the Yii release.
 	 * Note that non-free Duality.ttf has been changed to open/free SpicyRice.ttf since 1.1.14.
@@ -258,7 +258,7 @@ class CCaptchaAction extends CAction
 				$this->foreColor % 0x100);
 
 		if($this->fontFile === null)
-			$this->fontFile = dirname(__FILE__) . '/SpicyRice.ttf';
+			$this->fontFile = dirname(__FILE__) . '/arial.ttf';
 
 		$length = strlen($code);
 		$box = imagettfbbox(30,0,$this->fontFile,$code);
@@ -301,7 +301,7 @@ class CCaptchaAction extends CAction
 		$image->newImage($this->width,$this->height,$backColor);
 
 		if($this->fontFile===null)
-			$this->fontFile=dirname(__FILE__).'/SpicyRice.ttf';
+			$this->fontFile=dirname(__FILE__).'/arial.ttf';
 
 		$draw=new ImagickDraw();
 		$draw->setFont($this->fontFile);

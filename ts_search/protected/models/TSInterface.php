@@ -1,5 +1,5 @@
 <?php
-define('TSInterfaceROOT','http://localhost:8080/worker-node');
+define('TSInterfaceROOT','http://localhost:8080/datamanager-worker/');
 class TSInterface {
 	
 	public static function get($name){

@@ -64,10 +64,10 @@ find the file `CAFE_PORTAL/ts_search/protected/models/TSInterface.php` and modif
 define('TSInterfaceROOT','http://100.101.100.111:8088/worker-node/');   
 ``` 
 #### 7. Modify the virtual directory.     
+You should log in the Server as an administrator or with a root account or use sudo mode.  For Ubuntu users:
 ```Bash 
-sudo vi /etc/apache2/sites-enabled/000-default  
-# Then Configure the virtual directory `/CAFE_PORTAL/ts_search` after "DocumentRoot" keyword
-# OR you can use symlink
+#if you use apt-get in ubuntu
+sudo vi /etc/apache2/sites-enabled/000-default  #Configure the virtual directory After DocumentRoot
 sudo /etc/init.d/apache2 restart    #restart Apache
 ``` 
 
@@ -79,7 +79,7 @@ sudo /etc/init.d/apache2 restart    #restart Apache
 - Submit task and view status/result in the redirected window, you can also download the result after task finished.
 
 #### 9. Some problems you may encounter
-- 403 forbidden, Permission denied: access to / denied
+- CentOS, 403 forbidden, Permission denied: access to / denied
 
-  check access permission in /etc/httpd/conf/httpd.conf, and check if the /, root directory have +x privileges (every level of the parent directories should have that priviledge).
+  check access permission in /etc/httpd/conf/httpd.conf, and check if the /, root directory have +x privileges.
 

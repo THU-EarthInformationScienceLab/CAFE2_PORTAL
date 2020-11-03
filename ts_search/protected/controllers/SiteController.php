@@ -11,7 +11,7 @@ class SiteController extends Controller
 			// captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
-				'backColor'=>0x4c5daf,
+				'backColor'=>0x312525,
                 'foreColor'=>0x44bec1,
                 'maxLength'=>'4',       // 最多生成几个字符
                 'minLength'=>'4',       // 最少生成几个字符

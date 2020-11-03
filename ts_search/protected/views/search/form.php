@@ -122,7 +122,7 @@ border:solid 1px #0e509e
 		echo '</div>';
 	}
     ?>
-<div class="field">
+<div class="field-interaction">
 	<INPUT type="button"  value="Search"  id="submit_g6"/>
 	
 	<INPUT type="reset" value="Reset"/>
@@ -139,7 +139,7 @@ border:solid 1px #0e509e
 		<th>institute</th>
 		<th>model</th>
 		<th>experiment</th>
-		<th>modelingRealm</th>
+		<th>ModelingRealm</th>
 		<th>variableName</th>
 		<th>ensembleMember</th>
 		<th>temporalStart</th>
@@ -186,7 +186,71 @@ border:solid 1px #0e509e
 	</form>
 </div>
 <script type="text/javascript">
+	function updateform(fieldName,fieldItem,fieldChecked){
+		// using regex to count the occurence of '=', representing number of checked checkboxes 
+    	var filters = $('#filter_form').serialize();
+		var checkedCount= (filters.match(/=/g) || []).length;	
+		$.ajax({
+			type: "POST",
+            url: "<?php echo Yii::app()->createUrl('search/updateform')?>",
+            data: {
+                model:fieldName,
+				value:fieldItem
+                },
+            dataType: "json",
+            success: function(response){
+                //alert(response);
+				// get all corresponding filter items of that checkbox item
+				var updatedFields=JSON.parse(response.updatedFields);
+				var updatedFieldItems=updatedFields.data;
+				// the first time when a checkbox is checked (only one checkbox is checked), turn all field items to grey
+				if(checkedCount===1){
+					$('#filter_form label').css('color','#d3d3d3');
+				}		
+				// for each filter item in the form, see if it's in the current checkbox's corresponding filter items
+				$('#filter_form').children('.field').each(function() {
+					var fieldTitle=$(this).children('div .field-title')[0].innerHTML;
+					// first letter to lowercase to fit the interface
+					fieldTitle=fieldTitle[0].toLowerCase() + fieldTitle.slice(1);
+					var fieldOptions=updatedFieldItems[fieldTitle];
+					$(this).children('label').each( function() {
+						// add a data in field item DOM to determine how many times this item has been included according to the form checkbox selection
+						var fieldLabel=$(this);
+						// if includedtimes doesn't exist
+						if(fieldLabel.is('[data-includedtimes]')){}
+						else{
+							fieldLabel.attr('data-includedtimes',0);
+						}
+						if(fieldOptions.includes(fieldLabel[0].innerText)){
+							var includedtimes=Number(fieldLabel.attr('data-includedtimes'));
+							if(fieldChecked){
+								fieldLabel.attr('data-includedtimes', includedtimes+1);
+							}
+							else{
+								fieldLabel.attr('data-includedtimes', includedtimes-1);
+							}
+						}
+						// data included 0 times, set label color to grey, else black
+						if(Number(fieldLabel.attr('data-includedtimes'))>0){
+							fieldLabel.css('color','#555');
+						}
+						else{
+							fieldLabel.css('color','#d3d3d3');
+						}
+					});
+				});
 
+				// no checkbox checked turn all to black
+				if(checkedCount===0){
+					$('#filter_form label').css('color','#555555');
+				}
+            },
+            error:function(){
+                alert('server error.');
+            }
+		});
+
+	}
     function getList(page){
 		<?php 
 		foreach ($formItems as $field=>$items):
@@ -302,6 +366,24 @@ border:solid 1px #0e509e
         }
     }
 	$(document).ready(function(){
+		// fired when checkbox checked
+		// get checkState, fieldName and fieldItem of that checkbox option
+		$("input[type='checkbox']").click(function(){
+			var filters = $('#filter_form').serialize();
+			var checkedCount= (filters.match(/=/g) || []).length;
+			// temporary solution : if an >=2nd checked field item is black(already included) then check/uncheck it doesn't affect anything
+			// this won't cover the situation when: (a1,b1,c1) (a1,b2,c2) (a2,b2,c3)
+			// first select a1, then select b1 and b2
+			// the selection state should be (a1)&&(b1||b2) : (a1,b1,c1) (a1,b2,c2)
+			// solution will return (a1||b2): (a1,b1,c1) (a1,b2,c2) (a2,b2,c3) which contains a2
+			var includedtimes=0;
+			if (this.parentElement.dataset.includedtimes){
+				includedtimes= Number(this.parentElement.dataset.includedtimes);
+			}
+			if( (checkedCount>1 || (checkedCount==1&&!this.checked) ) && (includedtimes>0) ){}
+			//update form
+			else updateform(this.name,this.value,this.checked);
+		});
 		$('#submit_g6').click(function(){
 			//submit search
 			getList(0);

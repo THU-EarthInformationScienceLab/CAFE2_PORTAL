@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'CAFE Portal 1.0',
+	'name'=>'CAFE BCC-CMIP6 DATA DEMO',
 	'sourceLanguage'=>'en',
     'language'=>'en',
 	// preloading 'log' component
@@ -55,10 +55,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=userdb',
+			'connectionString' => 'mysql:host=localhost;dbname=cafeportal',
 			'emulatePrepare' => true,
-			'username' => 'test',
-			'password' => '123456',
+			'username' => 'cafeportal',
+			'password' => 'cafeportal21',
 			'charset' => 'utf8',
             'tablePrefix'=>'ts_',
 		),
